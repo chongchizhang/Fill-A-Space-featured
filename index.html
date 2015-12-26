@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fill-A-Space</title>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="projects.html">
+
+  <style>
+    main {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .projects {
+      flex: 1 1 450px;
+      margin: 20px;
+    }
+    
+    .logo {
+      margin: 30px auto 20px;
+      width: 100px;
+    }
+
+    .logo img {
+      width: 100%;
+    }
+
+    @media only screen and (min-width: 760px) {
+      .x-projects {
+        flex-basis: 50%;
+      }
+      .logo {
+        width: 150px;
+      }
+    }
+    @media only screen and (min-width: 1000px) {
+      .x-projects {
+        flex-basis: 33.333333333333%;
+      }
+    }  
+
+  </style>
+</head>
+<body>
+
+<div class="logo"><img src="images/logo250w.png" alt=""></div>
+
+<main id="content">
+  
+  
+</main>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="data.js"></script>
+<script>
+
+  function addElement(name, title, image, description) {
+    var xProjects = document.createElement("x-projects");
+    xProjects.name = name;
+    xProjects.title = title;
+    xProjects.image = image; 
+    xProjects.description = description;
+    xProjects.classList.add("x-projects");
+    document.querySelector('#content').appendChild(xProjects);
+  };
+  for (var newName in projects) {
+      addElement(projects[newName].name, projects[newName].title, projects[newName].image, projects[newName].description);
+
+      $('#content').append(); 
+  };
+
+</script>
+
+</body>
+</html>
